@@ -3,10 +3,17 @@
 - schmat **Eagle**/**Kicad**
 - wyeksportować do `pdf`
 
-# Projekt tytuł
-
-- urzadzenie wejściowe + wejściowe
-
+# Sterowanie jasnością diody w zależności od intensywności odbieranego dźwięku
+## Opis
+>Mikrofon przesyła odebrany dźwięk do mikrokontrolera, ten natomiast steruje jasnością diody w zależności od poziomu odebranego sygnału.
+***
+## Urzadzenia
+- **wejściowe:** mikrofon
+- **wyjściowe:** dioda
+***
+## Lista elementów
+*do ustalenia*
+***
 ## Etap 1
 
 - Temat projektu
