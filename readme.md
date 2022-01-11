@@ -8,7 +8,7 @@
 
 # Lista elementów
 ## Sekcja mikroprocesora
-![img](zdjecia/sekcja_mikro.jpg)
+![img](zdjecia/sekcja_mikro.png)
 ### 1.  Mikroprocesor - ATmega328P
 
 <b>Parametry Techniczne</b>
