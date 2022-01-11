@@ -11,7 +11,7 @@
 ![img](zdjecia/sekcja_mikro.jpg)
 ### 1.  Mikroprocesor - ATmega328P
 
-<b><center>Parametry Techniczne</b>
+<b>Parametry Techniczne</b>
 
 Producent: ATMEL
 
@@ -34,7 +34,6 @@ Liczba timerw 8-bit: 2
 Liczba timerw 16-bit: 1 
 
 Napicie pracy: 1.8...5.5V
-</center>
 
 <b>Opis portów:</b>
 
