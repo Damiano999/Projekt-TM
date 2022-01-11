@@ -1,72 +1,67 @@
-# Sterowanie jasnością diody w zależności od intensywności odbieranego dźwięku
-## Opis
->Mikrofon przesyła odebrany dźwięk do mikrokontrolera, ten natomiast steruje jasnością diody w zależności od poziomu odebranego sygnału.
-***
-## Urzadzenia
-- **wejściowe:** mikrofon
+# Temat: Zapalanie diody w zależności od oświetlenia pomieszczenia
+# Opis ogólny
+>Na podstawie infomrmacji otrzymanych z fotorezystor dotyczących jasności otoczenia, mikropocesor zapala bądź gasi diodę RGB. Dodatkowo przy pomocy przycisku można zmieniać kolor świecenia diody.
+
+# Urzadzenia
+- **wejściowe:** fotorezystor, przycisk(do zmiany koloru świecenia)
 - **wyjściowe:** dioda
+
+# Lista elementów
+## Sekcja mikroprocesora
+![img](zdjecia/sekcja_mikro.jpg)
+### 1.  Mikroprocesor - ATmega328P
+
+<b><center>Parametry Techniczne</b>
+
+Producent: ATMEL
+
+Typ ukadu scalonego: mikrokontroler AVR
+
+Organizacja pamici Flash: 32kx8bit
+
+Pojemno pamici EEPROM: 1024B
+
+Pojemno pamici SRAM: 2048B
+
+Czstotliwo taktowania: 20MHz
+
+Liczba wej/wyj:	23 
+
+Liczba kanaw PWM: 6 
+
+Liczba timerw 8-bit: 2 
+
+Liczba timerw 16-bit: 1 
+
+Napicie pracy: 1.8...5.5V
+</center>
+
+<b>Opis portów:</b>
+
+
+![img](zdjecia/mikroprocesor.jpg)
 ***
-## Lista elementów
-1. [Płytka rozwojowa](https://kamami.pl/plytki-zgodne-z-arduino-inne/584351-r3-plus-plytka-rozwojowa-z-mikrokontrolerem-atmega328p.html)
 
-Cechy:
-
->Mikrokontroler:	ATmega328
->
->Rdzeń:	AVR
->
->Częstotliwość układu:	16 MHz
->
->Pamięć Flash:	32 kB
->
->Pamięć RAM:	2 kB
->
->Pamięć EEPROM:	1 kB
->
->Ilość pinów cyfrowych:	20
->
->Ilość kanałów PWM:	6
->
->Ilość wejść analogowych:	8
->
->Przetwornik ADC:	1x 10bit
->
->Interfejs USB:	1
->
->Napięcie logiki:	3,3 V/5 V
->
->Napięcie zasilania: od	7 V
->
->Napięcie zasilania: do	12 V
-
-Opis portów:
-![img](./zdjecia/płytkap.jpg)
-![img](./zdjecia/płytkaopisportów.jpg)
->1. Mikrokontroler ATmega328P-AU
->2. Stabilizator 3,3 V AMS1117-3.3
->3. Stabilizator 5 V NCP1119ST50T3G
->4. FT232RL
->5. Interfejs Arduino
->6. Interfejs ICSP
->7. Złącze microUSB
->8. Piny z zasilaniem
->9. Piny FT232
->10. Wejście zasilania DC 7-12 V
->11. Reset
->12. LED zasilania
->13. LED TX/RX
->14. LED użytkownika
->15. Bezpiecznik 0,5 A
->16. Konfiguracja zasilania
->17. Przełącznik trybu Bootloader-a
-
-2. [Płytka stykowa](https://kamami.pl/plytki-stykowe/557415-prototypowa-plytka-stykowa-170-punktow-35x47-mm-kolor-bialy.html)
-3. [Mikrofon](https://kamami.pl/moduly-z-mikrofonami-i-detektory-dzwieku/560196-modul-czujnika-dzwieku-waveshare.html)
-4. [Przewody M-M](https://kamami.pl/przewody-m-m/204597-przewody-m-m-roznokolorowe-17-cm-do-plytek-stykowych-40-szt.html)
-5. [Dioda Led](https://kamami.pl/jednokolorowe/199221-led-al-o50y-w00900-130-70.html)
-6. Rezystor
-
+### 2.  Rezonator kwarcowy 16 MHz
+![img](zdjecia/kwarc.jpg)
 ***
+## Sekcja wejściowa
+![img](zdjecia/sekcja_wejscie.jpg)
+### 1.  Przełącznik DTS-6 (przycisk typu tact switch)
+Naciśnięcie powoduje zwarcie styków, zwolnienie rozwiera styki.
+
+![img](zdjecia/przycisk.jpg)
+***
+### 2.  Fotorezystor
+Fotorezystor zmienia swoją czułość w zależności od długości fali światła padającego na niego. Co za tym idzie jest w stanie monitorować oświetlenie w miejscu, w którym się znajduje.
+![img](zdjecia/fotorezystor.jpg)
+## Sekcja wyjściowa
+![img](zdjecia/sekcja_wyjscie.jpg)
+### 1.  Dioda LED RGB
+# Kod
+```cpp
+In progress....
+```
 ## Etap 1
 
 - Temat projektu
