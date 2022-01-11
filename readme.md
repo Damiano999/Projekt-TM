@@ -38,24 +38,24 @@ Napicie pracy: 1.8...5.5V
 <b>Opis portów:</b>
 
 
-![img](zdjecia/mikroprocesor.jpg)
+![img](zdjecia/mikroprocesor.png)
 ***
 
 ### 2.  Rezonator kwarcowy 16 MHz
-![img](zdjecia/kwarc.jpg)
+![img](zdjecia/kwarc.png)
 ***
 ## Sekcja wejściowa
-![img](zdjecia/sekcja_wejscie.jpg)
+![img](zdjecia/sekcja_wejscie.png)
 ### 1.  Przełącznik DTS-6 (przycisk typu tact switch)
 Naciśnięcie powoduje zwarcie styków, zwolnienie rozwiera styki.
 
-![img](zdjecia/przycisk.jpg)
+![img](zdjecia/przycisk.png)
 ***
 ### 2.  Fotorezystor
 Fotorezystor zmienia swoją czułość w zależności od długości fali światła padającego na niego. Co za tym idzie jest w stanie monitorować oświetlenie w miejscu, w którym się znajduje.
-![img](zdjecia/fotorezystor.jpg)
+![img](zdjecia/fotorezystor.png)
 ## Sekcja wyjściowa
-![img](zdjecia/sekcja_wyjscie.jpg)
+![img](zdjecia/sekcja_wyjscie.png)
 ### 1.  Dioda LED RGB
 # Kod
 ```cpp
