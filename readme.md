@@ -1,7 +1,6 @@
 # Temat: Zapalanie diody w zależności od oświetlenia pomieszczenia
 # Opis ogólny
->Na podstawie infomrmacji otrzymanych z fotorezystor dotyczących jasności otoczenia, mikropocesor zapala bądź gasi diodę RGB. Dodatkowo przy pomocy przycisku można zmieniać kolor świecenia diody.
-
+>Na podstawie infomrmacji otrzymanych z fotorezystor dotyczących jasności otoczenia, mikropocesor zapala bądź gasi diodę RGB.
 # Urzadzenia
 - **wejściowe:** fotorezystor, przycisk(do zmiany koloru świecenia)
 - **wyjściowe:** dioda
@@ -59,7 +58,66 @@ Fotorezystor zmienia swoją czułość w zależności od długości fali świat�
 ### 1.  Dioda LED RGB
 # Kod
 ```cpp
-In progress....
+#include <avr/io.h>
+#include <util/delay.h>
+
+// deklaracja zmiennych globalnych
+#define button (1<<PC5)
+#define PWM_LED (1<<PB1)
+
+// deklaracja PWM
+void init_PWM(){
+	TCCR1A |= (1<<COM1A1) | (1<<WGM10);
+	TCCR1B |= (1<<WGM12) | (1<<CS11);
+	OCR1A = 0;
+}
+
+// deklaracja ADC
+void init_ADC(){
+	ADMUX |= (1 << REFS0);
+	ADCSRA |= (1 << ADPS1) | (1 << ADPS0);
+	ADCSRA |= (1 << ADEN);
+}
+
+
+int main(void){
+
+DDRB |=  PWM_LED;
+PORTC |= button;
+
+init_PWM();
+init_ADC();
+
+int fotorezystor;
+int PWM=0;
+int latch=0; // zmienna pomocnicza do monitorowania przycisku
+            // po przycisnieciu jasnosc diody ma sie zatrzymac na poziomie jasnosci oswietlenia
+            // po ponownym przycisnieciu zmienia jasnosc na kolejna (aktualna) jasnosc
+    while(1) {
+		ADCSRA |= (1 << ADSC);
+		loop_until_bit_is_clear(ADCSRA, ADSC);
+		fotorezystor= ADC;
+
+		if((fotorezystor%4)==0){ // dzielenie przez 4 poniewz adc zmierza do 1024 a PWM maksymalnie przyjmuje 256
+			PWM=fotorezystor/4;
+		}
+		if(!(PINC & button)){
+			if(latch==0){
+				latch=1;
+			}
+			else{
+				latch=0;
+			}
+			_delay_ms(50);
+		}
+		if(latch==0){
+		OCR1A = PWM;
+		}
+
+		_delay_ms(50);
+		}
+
+    }
 ```
 ## Etap 1
 
