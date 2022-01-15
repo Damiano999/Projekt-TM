@@ -2,7 +2,7 @@
 # Opis ogólny
 >Na podstawie infomrmacji otrzymanych z fotorezystor dotyczących jasności otoczenia, mikropocesor zapala bądź gasi diodę RGB.
 # Urzadzenia
-- **wejściowe:** fotorezystor, przycisk(do zmiany koloru świecenia)
+- **wejściowe:** fotorezystor, przycisk
 - **wyjściowe:** dioda
 
 # Lista elementów
