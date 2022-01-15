@@ -119,9 +119,3 @@ int latch=0; // zmienna pomocnicza do monitorowania przycisku
 
     }
 ```
-## Etap 1
-
-- Temat projektu
-- Opis
-- Lista elementów
-
