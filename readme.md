@@ -67,16 +67,18 @@ Fotorezystor zmienia swoją czułość w zależności od długości fali świat�
 
 // deklaracja PWM
 void init_PWM(){
-	TCCR1A |= (1<<COM1A1) | (1<<WGM10);
-	TCCR1B |= (1<<WGM12) | (1<<CS11);
-	OCR1A = 0;
+	TCCR1A |= (1<<COM1A1) | (1<<WGM10); // TCCR1A - rejestr konfiguracyjny A
+	TCCR1B |= (1<<WGM12) | (1<<CS11); // TCCR1B - rejestr konfiguracyjny B
+	OCR1A = 0; // OCR1A - pierwszy rejestr funkcji Output Compare, dostępny 8-bitowo
 }
 
 // deklaracja ADC
 void init_ADC(){
-	ADMUX |= (1 << REFS0);
-	ADCSRA |= (1 << ADPS1) | (1 << ADPS0);
-	ADCSRA |= (1 << ADEN);
+	ADMUX |= (1 << REFS0); // ADMUX - rejestrów sterujących zachowaniem się przetwornika
+							// REFS0 - Wybór źródła napięcia odniesienia
+	ADCSRA |= (1 << ADPS1) | (1 << ADPS0); // ADCSRA - rejestrów sterujących zachowaniem się przetwornika
+											// ADPS0, ADPS1 - bity definujące pożądaną relację między częstotliwością zegara sytemowego
+	ADCSRA |= (1 << ADEN); // ADEN - ustawienie go zezwala na pracę przetwornika, a wyzerowanie wyłącza go. Wyłączenie ADC podczas wykonywania konwersji przerywa ją.
 }
 
 
@@ -95,7 +97,7 @@ int latch=0; // zmienna pomocnicza do monitorowania przycisku
             // po ponownym przycisnieciu zmienia jasnosc na kolejna (aktualna) jasnosc
     while(1) {
 		ADCSRA |= (1 << ADSC);
-		loop_until_bit_is_clear(ADCSRA, ADSC);
+		loop_until_bit_is_clear(ADCSRA, ADSC); // loop_until_bit_is_clear - pętla oczekiwania na oczekiwanie na zgaszenie (0) bitu w rejestrze sfr
 		fotorezystor= ADC;
 
 		if((fotorezystor%4)==0){ // dzielenie przez 4 poniewz adc zmierza do 1024 a PWM maksymalnie przyjmuje 256
